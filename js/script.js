@@ -3,7 +3,7 @@
 // ========================================
 
 const eventSettings = {
-  enabled: false,
+  enabled: true,
   title: "SUMMER SALE EVENT",
   discount: 20,
   endDate: "2026-12-31T23:59:59"
@@ -19,7 +19,7 @@ const EXCHANGE_RATE = 56;
 // DISCORD LINK - Change once, updates all Buy buttons
 // ========================================
 
-const DISCORD_LINK = "https://discord.gg/RpY9zM9HyK";
+const DISCORD_LINK = "https://discord.gg/YOURSERVER";
 
 // ========================================
 // HERO SETTINGS - Edit this object for hero section
@@ -27,7 +27,7 @@ const DISCORD_LINK = "https://discord.gg/RpY9zM9HyK";
 
 const heroSettings = {
   backgroundImage: "images/hero-banner.svg",
-  title: "Premium Gaming Marketplace",
+  title: "Trader's Trail GameSeller",
   description: "Buy and sell gaming accounts, currencies, items and more. Trusted by thousands of gamers worldwide.",
   buttonText: "Browse Games",
   buttonLink: "#games"
@@ -611,7 +611,7 @@ function buildFooter() {
   const footer = document.createElement("footer");
   footer.className = "footer";
   footer.innerHTML = `
-    <p>&copy; ${new Date().getFullYear()} Premium Gaming Marketplace. All rights reserved.</p>
+    <p>&copy; ${new Date().getFullYear()} Trader's Trail GameSeller. All rights reserved.</p>
   `;
 
   document.body.appendChild(footer);
