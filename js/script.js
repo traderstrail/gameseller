@@ -19,7 +19,7 @@ const EXCHANGE_RATE = 56;
 // DISCORD LINK - Change once, updates all Buy buttons
 // ========================================
 
-const DISCORD_LINK = "https://discord.gg/YOURSERVER";
+const DISCORD_LINK = "https://discord.gg/RpY9zM9HyK";
 
 // ========================================
 // HERO SETTINGS - Edit this object for hero section
