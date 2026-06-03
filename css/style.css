@@ -589,6 +589,14 @@ button {
   color: #6c5ce7;
 }
 
+.product-php-price {
+  font-size: 0.85rem;
+  color: #a0a0b8;
+  font-weight: 600;
+  display: block;
+  margin-top: 2px;
+}
+
 .product-buy-btn {
   width: 100%;
   padding: 12px;
@@ -631,6 +639,55 @@ button {
 .badge-sale {
   background: rgba(253, 121, 168, 0.2);
   color: #fd79a8;
+}
+
+/* ========================================
+   PAYMENT METHODS
+   ======================================== */
+
+.payment-section {
+  padding: 60px 20px 80px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.payment-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 25px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.payment-card {
+  background: #13131a;
+  border-radius: 16px;
+  padding: 30px 20px;
+  text-align: center;
+  border: 1px solid rgba(108, 92, 231, 0.1);
+  transition: all 0.4s;
+}
+
+.payment-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(108, 92, 231, 0.4);
+  box-shadow: 0 10px 40px rgba(108, 92, 231, 0.2);
+}
+
+.payment-icon {
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+}
+
+.payment-card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.payment-card p {
+  color: #a0a0b8;
+  font-size: 0.85rem;
 }
 
 /* ========================================
