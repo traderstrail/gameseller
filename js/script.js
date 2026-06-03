@@ -5,9 +5,15 @@
 const eventSettings = {
   enabled: true,
   title: "SUMMER SALE EVENT",
-  discount: 50,
+  discount: 20,
   endDate: "2026-12-31T23:59:59"
 };
+
+// ========================================
+// EXCHANGE RATE - Edit this for PHP conversion
+// ========================================
+
+const EXCHANGE_RATE = 56;
 
 // ========================================
 // DISCORD LINK - Change once, updates all Buy buttons
@@ -286,6 +292,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (currentPage === "index") {
     buildHero();
     buildGameCards();
+    buildPaymentMethods();
   } else {
     const game = games.find(g => g.page === currentPage + ".html");
     if (game) {
@@ -514,13 +521,19 @@ function buildProductCards(gameId) {
     let pricingHTML;
     if (eventActive && !eventEnded && product.originalPrice) {
       const salePrice = product.originalPrice * (1 - eventSettings.discount / 100);
+      const salePricePHP = salePrice * EXCHANGE_RATE;
       pricingHTML = `
         <span class="product-original-price">$${product.originalPrice.toFixed(2)}</span>
         <span class="product-sale-price">$${salePrice.toFixed(2)}</span>
+        <span class="product-php-price">₱${salePricePHP.toFixed(2)}</span>
       `;
     } else {
       const displayPrice = product.originalPrice || 0;
-      pricingHTML = `<span class="product-sale-price">$${displayPrice.toFixed(2)}</span>`;
+      const displayPricePHP = displayPrice * EXCHANGE_RATE;
+      pricingHTML = `
+        <span class="product-sale-price">$${displayPrice.toFixed(2)}</span>
+        <span class="product-php-price">₱${displayPricePHP.toFixed(2)}</span>
+      `;
     }
 
     html += `
@@ -546,6 +559,45 @@ function buildProductCards(gameId) {
   const header = document.querySelector(".game-header");
   if (header) {
     header.insertAdjacentElement("afterend", section);
+  }
+}
+
+// ========================================
+// BUILD PAYMENT METHODS (homepage only)
+// ========================================
+
+function buildPaymentMethods() {
+  const payments = [
+    { name: "GCash", icon: "💚", desc: "Instant bank transfers & payments" },
+    { name: "PayMaya", icon: "💙", desc: "Pay via Maya wallet or card" },
+    { name: "PayPal", icon: "💳", desc: "Secure international payments" }
+  ];
+
+  const section = document.createElement("section");
+  section.className = "payment-section fade-in";
+
+  let html = `
+    <h2 class="section-title">We Accept</h2>
+    <p class="section-subtitle">Secure and trusted payment methods</p>
+    <div class="payment-grid">
+  `;
+
+  payments.forEach(p => {
+    html += `
+      <div class="payment-card">
+        <div class="payment-icon">${p.icon}</div>
+        <h3>${p.name}</h3>
+        <p>${p.desc}</p>
+      </div>
+    `;
+  });
+
+  html += `</div></section>`;
+  section.innerHTML = html;
+
+  const gamesSection = document.getElementById("games");
+  if (gamesSection) {
+    gamesSection.insertAdjacentElement("afterend", section);
   }
 }
 
