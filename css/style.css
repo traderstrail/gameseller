@@ -674,9 +674,12 @@ button {
   box-shadow: 0 10px 40px rgba(108, 92, 231, 0.2);
 }
 
-.payment-icon {
-  font-size: 2.5rem;
-  margin-bottom: 12px;
+.payment-logo {
+  width: 80px;
+  height: 54px;
+  object-fit: contain;
+  margin: 0 auto 12px;
+  border-radius: 8px;
 }
 
 .payment-card h3 {
