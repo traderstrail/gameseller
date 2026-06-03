@@ -3,9 +3,9 @@
 // ========================================
 
 const eventSettings = {
-  enabled: false,
+  enabled: true,
   title: "SUMMER SALE EVENT",
-  discount: 20,
+  discount: 50,
   endDate: "2026-12-31T23:59:59"
 };
 
