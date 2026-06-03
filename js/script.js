@@ -286,13 +286,13 @@ document.addEventListener("DOMContentLoaded", function () {
   buildNavbar();
   buildEventBanner();
   buildFooter();
+  buildPaymentMethods();
 
   const currentPage = getCurrentPage();
 
   if (currentPage === "index") {
     buildHero();
     buildGameCards();
-    buildPaymentMethods();
   } else {
     const game = games.find(g => g.page === currentPage + ".html");
     if (game) {
@@ -563,16 +563,16 @@ function buildProductCards(gameId) {
 }
 
 // ========================================
-// BUILD PAYMENT METHODS (homepage only)
+// BUILD PAYMENT METHODS
 // ========================================
 
-function buildPaymentMethods() {
-  const payments = [
-    { name: "GCash", icon: "💚", desc: "Instant bank transfers & payments" },
-    { name: "PayMaya", icon: "💙", desc: "Pay via Maya wallet or card" },
-    { name: "PayPal", icon: "💳", desc: "Secure international payments" }
-  ];
+const paymentMethods = [
+  { name: "GCash", image: "images/gcash.svg", desc: "Instant bank transfers & payments" },
+  { name: "PayMaya", image: "images/paymaya.svg", desc: "Pay via Maya wallet or card" },
+  { name: "PayPal", image: "images/paypal.svg", desc: "Secure international payments" }
+];
 
+function buildPaymentMethods() {
   const section = document.createElement("section");
   section.className = "payment-section fade-in";
 
@@ -582,10 +582,10 @@ function buildPaymentMethods() {
     <div class="payment-grid">
   `;
 
-  payments.forEach(p => {
+  paymentMethods.forEach(p => {
     html += `
       <div class="payment-card">
-        <div class="payment-icon">${p.icon}</div>
+        <img src="${p.image}" alt="${p.name}" class="payment-logo" onerror="this.style.display='none'">
         <h3>${p.name}</h3>
         <p>${p.desc}</p>
       </div>
@@ -595,9 +595,11 @@ function buildPaymentMethods() {
   html += `</div></section>`;
   section.innerHTML = html;
 
-  const gamesSection = document.getElementById("games");
-  if (gamesSection) {
-    gamesSection.insertAdjacentElement("afterend", section);
+  const footer = document.querySelector(".footer");
+  if (footer) {
+    footer.parentNode.insertBefore(section, footer);
+  } else {
+    document.body.appendChild(section);
   }
 }
 
