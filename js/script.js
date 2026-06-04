@@ -19,7 +19,7 @@ const EXCHANGE_RATE = 56;
 // DISCORD LINK - Change once, updates all Buy buttons
 // ========================================
 
-const DISCORD_LINK = "https://discord.gg/RpY9zM9HyK";
+const DISCORD_LINK = "https://discord.gg/YOURSERVER";
 
 // ========================================
 // HERO SETTINGS - Edit this object for hero section
@@ -87,7 +87,8 @@ const productsData = {
       image: "images/growtopia.svg",
       originalPrice: 29.99,
       salePrice: 24.99,
-      badge: "popular"
+      badge: "popular",
+      totalSold: 847
     },
     {
       name: "World Lock Bundle",
@@ -95,7 +96,8 @@ const productsData = {
       image: "images/growtopia.svg",
       originalPrice: 14.99,
       salePrice: 11.99,
-      badge: "sale"
+      badge: "sale",
+      totalSold: 1523
     },
     {
       name: "Premium Account",
@@ -103,7 +105,8 @@ const productsData = {
       image: "images/growtopia.svg",
       originalPrice: 59.99,
       salePrice: 44.99,
-      badge: "popular"
+      badge: "popular",
+      totalSold: 312
     },
     {
       name: "Growtoken Pack",
@@ -111,7 +114,8 @@ const productsData = {
       image: "images/growtopia.svg",
       originalPrice: 19.99,
       salePrice: 15.99,
-      badge: null
+      badge: null,
+      totalSold: 689
     }
   ],
   minecraft: [
@@ -121,7 +125,8 @@ const productsData = {
       image: "images/minecraft.svg",
       originalPrice: 34.99,
       salePrice: 24.99,
-      badge: "new"
+      badge: "new",
+      totalSold: 1256
     },
     {
       name: "Minecoin Pack",
@@ -129,7 +134,8 @@ const productsData = {
       image: "images/minecraft.svg",
       originalPrice: 49.99,
       salePrice: 39.99,
-      badge: "popular"
+      badge: "popular",
+      totalSold: 2341
     },
     {
       name: "Lifetime Rank",
@@ -137,7 +143,8 @@ const productsData = {
       image: "images/minecraft.svg",
       originalPrice: 24.99,
       salePrice: 19.99,
-      badge: "sale"
+      badge: "sale",
+      totalSold: 567
     },
     {
       name: "Cosmetics Bundle",
@@ -145,7 +152,8 @@ const productsData = {
       image: "images/minecraft.svg",
       originalPrice: 15.99,
       salePrice: 12.99,
-      badge: null
+      badge: null,
+      totalSold: 1892
     }
   ],
   pixelworlds: [
@@ -155,7 +163,8 @@ const productsData = {
       image: "images/pixelworlds.svg",
       originalPrice: 9.99,
       salePrice: 7.99,
-      badge: "popular"
+      badge: "popular",
+      totalSold: 3456
     },
     {
       name: "500 Gems",
@@ -163,7 +172,8 @@ const productsData = {
       image: "images/pixelworlds.svg",
       originalPrice: 39.99,
       salePrice: 29.99,
-      badge: "sale"
+      badge: "sale",
+      totalSold: 2103
     },
     {
       name: "Starter Account",
@@ -171,7 +181,8 @@ const productsData = {
       image: "images/pixelworlds.svg",
       originalPrice: 19.99,
       salePrice: 14.99,
-      badge: "new"
+      badge: "new",
+      totalSold: 789
     },
     {
       name: "World Pack",
@@ -179,7 +190,8 @@ const productsData = {
       image: "images/pixelworlds.svg",
       originalPrice: 24.99,
       salePrice: 19.99,
-      badge: null
+      badge: null,
+      totalSold: 445
     }
   ],
   roblox: [
@@ -189,7 +201,8 @@ const productsData = {
       image: "images/roblox.svg",
       originalPrice: 14.99,
       salePrice: 11.99,
-      badge: "popular"
+      badge: "popular",
+      totalSold: 5678
     },
     {
       name: "Limited Item",
@@ -197,7 +210,8 @@ const productsData = {
       image: "images/roblox.svg",
       originalPrice: 99.99,
       salePrice: 74.99,
-      badge: "sale"
+      badge: "sale",
+      totalSold: 234
     },
     {
       name: "Gamepass",
@@ -205,7 +219,8 @@ const productsData = {
       image: "images/roblox.svg",
       originalPrice: 9.99,
       salePrice: 7.99,
-      badge: null
+      badge: null,
+      totalSold: 4123
     },
     {
       name: "Bloxfruit Account",
@@ -213,7 +228,8 @@ const productsData = {
       image: "images/roblox.svg",
       originalPrice: 44.99,
       salePrice: 34.99,
-      badge: "popular"
+      badge: "popular",
+      totalSold: 1567
     }
   ],
   hayday: [
@@ -223,7 +239,8 @@ const productsData = {
       image: "images/hayday.svg",
       originalPrice: 12.99,
       salePrice: 9.99,
-      badge: "popular"
+      badge: "popular",
+      totalSold: 2890
     },
     {
       name: "500 Diamonds",
@@ -231,7 +248,8 @@ const productsData = {
       image: "images/hayday.svg",
       originalPrice: 39.99,
       salePrice: 29.99,
-      badge: "sale"
+      badge: "sale",
+      totalSold: 1678
     },
     {
       name: "Max Level Farm",
@@ -239,7 +257,8 @@ const productsData = {
       image: "images/hayday.svg",
       originalPrice: 79.99,
       salePrice: 59.99,
-      badge: null
+      badge: null,
+      totalSold: 456
     },
     {
       name: "Farm Pack",
@@ -247,7 +266,8 @@ const productsData = {
       image: "images/hayday.svg",
       originalPrice: 24.99,
       salePrice: 19.99,
-      badge: "new"
+      badge: "new",
+      totalSold: 901
     }
   ]
 };
@@ -536,11 +556,17 @@ function buildProductCards(gameId) {
       `;
     }
 
+    const soldCount = product.totalSold || 0;
+    const soldDisplay = soldCount >= 1000
+      ? (soldCount / 1000).toFixed(1).replace(/\.0$/, "") + "k"
+      : soldCount;
+
     html += `
       <div class="product-card">
         <img src="${product.image}" alt="${product.name}" class="product-card-image" onerror="handleProductImageError(this)">
         <div class="product-card-body">
           ${badgeHTML}
+          <div class="product-sold">${soldDisplay} sold</div>
           <h3>${product.name}</h3>
           <p>${product.description}</p>
           <div class="product-pricing">
@@ -623,6 +649,30 @@ function buildFooter() {
 
 function handleBuyClick(productName) {
   window.open(DISCORD_LINK, "_blank");
+
+  for (const gameId in productsData) {
+    const product = productsData[gameId].find(p => p.name === productName);
+    if (product) {
+      product.totalSold = (product.totalSold || 0) + 1;
+      const cards = document.querySelectorAll(".product-card");
+      for (const card of cards) {
+        const title = card.querySelector("h3");
+        if (title && title.textContent === productName) {
+          const soldEl = card.querySelector(".product-sold");
+          if (soldEl) {
+            const newCount = product.totalSold;
+            const display = newCount >= 1000
+              ? (newCount / 1000).toFixed(1).replace(/\.0$/, "") + "k"
+              : newCount;
+            soldEl.textContent = display + " sold";
+          }
+          break;
+        }
+      }
+      break;
+    }
+  }
+
   showToast("Redirecting to Discord for: " + productName);
 }
 
