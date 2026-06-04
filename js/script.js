@@ -82,13 +82,13 @@ const games = [
 const productsData = {
   growtopia: [
     {
-      name: "Diamond Lock Pack",
+      name: "Blue Gem Lock",
       description: "100 Diamond Locks, instant delivery, best price guaranteed.",
       image: "images/products/growtopia-diamond-lock-pack.svg",
       originalPrice: 29.99,
       salePrice: 24.99,
       badge: "popular",
-      totalSold: 847
+      totalSold: 0
     },
     {
       name: "World Lock Bundle",
@@ -97,7 +97,7 @@ const productsData = {
       originalPrice: 14.99,
       salePrice: 11.99,
       badge: "sale",
-      totalSold: 1523
+      totalSold: 0
     },
     {
       name: "Premium Account",
@@ -106,7 +106,7 @@ const productsData = {
       originalPrice: 59.99,
       salePrice: 44.99,
       badge: "popular",
-      totalSold: 312
+      totalSold: 0
     },
     {
       name: "Growtoken Pack",
@@ -115,7 +115,7 @@ const productsData = {
       originalPrice: 19.99,
       salePrice: 15.99,
       badge: null,
-      totalSold: 689
+      totalSold: 0
     }
   ],
   minecraft: [
@@ -126,7 +126,7 @@ const productsData = {
       originalPrice: 34.99,
       salePrice: 24.99,
       badge: "new",
-      totalSold: 1256
+      totalSold: 0
     },
     {
       name: "Minecoin Pack",
@@ -135,7 +135,7 @@ const productsData = {
       originalPrice: 49.99,
       salePrice: 39.99,
       badge: "popular",
-      totalSold: 2341
+      totalSold: 0
     },
     {
       name: "Lifetime Rank",
@@ -144,7 +144,7 @@ const productsData = {
       originalPrice: 24.99,
       salePrice: 19.99,
       badge: "sale",
-      totalSold: 567
+      totalSold: 0
     },
     {
       name: "Cosmetics Bundle",
@@ -153,7 +153,7 @@ const productsData = {
       originalPrice: 15.99,
       salePrice: 12.99,
       badge: null,
-      totalSold: 1892
+      totalSold: 0
     }
   ],
   pixelworlds: [
@@ -164,7 +164,7 @@ const productsData = {
       originalPrice: 9.99,
       salePrice: 7.99,
       badge: "popular",
-      totalSold: 3456
+      totalSold: 0
     },
     {
       name: "500 Gems",
@@ -173,7 +173,7 @@ const productsData = {
       originalPrice: 39.99,
       salePrice: 29.99,
       badge: "sale",
-      totalSold: 2103
+      totalSold: 0
     },
     {
       name: "Starter Account",
@@ -182,7 +182,7 @@ const productsData = {
       originalPrice: 19.99,
       salePrice: 14.99,
       badge: "new",
-      totalSold: 789
+      totalSold: 0
     },
     {
       name: "World Pack",
@@ -191,7 +191,7 @@ const productsData = {
       originalPrice: 24.99,
       salePrice: 19.99,
       badge: null,
-      totalSold: 445
+      totalSold: 0
     }
   ],
   roblox: [
@@ -202,7 +202,7 @@ const productsData = {
       originalPrice: 14.99,
       salePrice: 11.99,
       badge: "popular",
-      totalSold: 5678
+      totalSold: 0
     },
     {
       name: "Limited Item",
@@ -211,7 +211,7 @@ const productsData = {
       originalPrice: 99.99,
       salePrice: 74.99,
       badge: "sale",
-      totalSold: 234
+      totalSold: 0
     },
     {
       name: "Gamepass",
@@ -220,7 +220,7 @@ const productsData = {
       originalPrice: 9.99,
       salePrice: 7.99,
       badge: null,
-      totalSold: 4123
+      totalSold: 0
     },
     {
       name: "Bloxfruit Account",
@@ -229,7 +229,7 @@ const productsData = {
       originalPrice: 44.99,
       salePrice: 34.99,
       badge: "popular",
-      totalSold: 1567
+      totalSold: 0
     }
   ],
   hayday: [
@@ -240,7 +240,7 @@ const productsData = {
       originalPrice: 12.99,
       salePrice: 9.99,
       badge: "popular",
-      totalSold: 2890
+      totalSold: 0
     },
     {
       name: "500 Diamonds",
@@ -249,7 +249,7 @@ const productsData = {
       originalPrice: 39.99,
       salePrice: 29.99,
       badge: "sale",
-      totalSold: 1678
+      totalSold: 0
     },
     {
       name: "Max Level Farm",
@@ -258,7 +258,7 @@ const productsData = {
       originalPrice: 79.99,
       salePrice: 59.99,
       badge: null,
-      totalSold: 456
+      totalSold: 0
     },
     {
       name: "Farm Pack",
@@ -267,7 +267,7 @@ const productsData = {
       originalPrice: 24.99,
       salePrice: 19.99,
       badge: "new",
-      totalSold: 901
+      totalSold: 0
     }
   ]
 };
