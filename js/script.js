@@ -123,7 +123,7 @@ const productsData = {
       name: "Minecraft Account",
       description: "Full access Minecraft Java & Bedrock account.",
       image: "images/products/minecraft-account.svg",
-      originalPrice: 34.99,
+      originalPrice: 9,
       salePrice: 24.99,
       badge: "new",
       totalSold: 0
@@ -258,7 +258,7 @@ const productsData = {
       originalPrice: 79.99,
       salePrice: 59.99,
       badge: null,
-      totalSold: 0
+      totalSold: 1
     },
     {
       name: "Farm Pack",
