@@ -4,8 +4,8 @@
 
 const eventSettings = {
   enabled: true,
-  title: "SUMMER SALE EVENT",
-  discount: 20,
+  title: "GRAND OPENING EVENT",
+  discount: 5,
   endDate: "2026-12-31T23:59:59"
 };
 
