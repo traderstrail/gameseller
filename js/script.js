@@ -314,8 +314,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (currentPage === "index") {
     buildHero();
-    buildStats();
     buildGameCards();
+    buildStats();
   } else {
     const game = games.find(g => g.page === currentPage + ".html");
     if (game) {
@@ -510,24 +510,29 @@ function getTotalSold() {
   return total;
 }
 
+function formatNumber(n) {
+  return n.toLocaleString("en-US");
+}
+
+function formatCustomers(n) {
+  if (n >= 1000) {
+    return (n / 1000).toFixed(1).replace(/\.0$/, "") + "k+";
+  }
+  return n + "+";
+}
+
 function buildStats() {
   const section = document.createElement("section");
   section.className = "stats-section fade-in";
 
   const totalSold = getTotalSold();
-  const soldDisplay = totalSold >= 1000
-    ? (totalSold / 1000).toFixed(1).replace(/\.0$/, "") + "k+"
-    : totalSold + "+";
-
-  const customersDisplay = totalSatisfiedCustomers >= 1000
-    ? (totalSatisfiedCustomers / 1000).toFixed(1).replace(/\.0$/, "") + "k+"
-    : totalSatisfiedCustomers + "+";
+  const customersDisplay = formatCustomers(totalSatisfiedCustomers);
 
   section.innerHTML = `
     <div class="stats-container">
       <div class="stat-item">
-        <span class="stat-number" id="statTotalSold">${soldDisplay}</span>
-        <span class="stat-label">Products Sold</span>
+        <span class="stat-number" id="statTotalSold">${formatNumber(totalSold)}</span>
+        <span class="stat-label">Total Sold</span>
       </div>
       <div class="stat-divider"></div>
       <div class="stat-item">
@@ -537,9 +542,9 @@ function buildStats() {
     </div>
   `;
 
-  const hero = document.getElementById("hero");
-  if (hero) {
-    hero.insertAdjacentElement("afterend", section);
+  const gamesSection = document.querySelector(".games-section");
+  if (gamesSection) {
+    gamesSection.insertAdjacentElement("afterend", section);
   }
 }
 
@@ -548,18 +553,11 @@ function buildStats() {
 // ========================================
 
 function updateStatsDisplay() {
-  const totalSold = getTotalSold();
-  const soldDisplay = totalSold >= 1000
-    ? (totalSold / 1000).toFixed(1).replace(/\.0$/, "") + "k+"
-    : totalSold + "+";
-  const customersDisplay = totalSatisfiedCustomers >= 1000
-    ? (totalSatisfiedCustomers / 1000).toFixed(1).replace(/\.0$/, "") + "k+"
-    : totalSatisfiedCustomers + "+";
-
   const soldEl = document.getElementById("statTotalSold");
   const custEl = document.getElementById("statCustomers");
-  if (soldEl) soldEl.textContent = soldDisplay;
-  if (custEl) custEl.textContent = customersDisplay;
+  const totalSold = getTotalSold();
+  if (soldEl) soldEl.textContent = formatNumber(totalSold);
+  if (custEl) custEl.textContent = formatCustomers(totalSatisfiedCustomers);
 }
 
 // ========================================
