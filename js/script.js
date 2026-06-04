@@ -21,8 +21,6 @@ const EXCHANGE_RATE = 56;
 
 const DISCORD_LINK = "https://discord.gg/YOURSERVER";
 
-let totalSatisfiedCustomers = 0;
-
 // ========================================
 // HERO SETTINGS - Edit this object for hero section
 // ========================================
@@ -315,7 +313,6 @@ document.addEventListener("DOMContentLoaded", function () {
   if (currentPage === "index") {
     buildHero();
     buildGameCards();
-    buildStats();
   } else {
     const game = games.find(g => g.page === currentPage + ".html");
     if (game) {
@@ -497,67 +494,6 @@ function buildGameCards() {
 }
 
 // ========================================
-// BUILD STATS SECTION (homepage)
-// ========================================
-
-function getTotalSold() {
-  let total = 0;
-  for (const gameId in productsData) {
-    productsData[gameId].forEach(p => {
-      total += p.totalSold || 0;
-    });
-  }
-  return total;
-}
-
-function formatNumber(n) {
-  return n.toLocaleString("en-US");
-}
-
-function formatCustomers(n) {
-  if (n >= 1000) {
-    return (n / 1000).toFixed(1).replace(/\.0$/, "") + "k+";
-  }
-  return n + "+";
-}
-
-function buildStats() {
-  const totalSold = getTotalSold();
-  const customersDisplay = formatCustomers(totalSatisfiedCustomers);
-
-  const statsHTML = `
-    <div class="stats-container fade-in">
-      <div class="stat-item">
-        <span class="stat-number" id="statTotalSold">${formatNumber(totalSold)}</span>
-        <span class="stat-label">Total Sold</span>
-      </div>
-      <div class="stat-divider"></div>
-      <div class="stat-item">
-        <span class="stat-number" id="statCustomers">${customersDisplay}</span>
-        <span class="stat-label">Satisfied Customers</span>
-      </div>
-    </div>
-  `;
-
-  const gamesSection = document.querySelector(".games-section");
-  if (gamesSection) {
-    gamesSection.insertAdjacentHTML("beforeend", statsHTML);
-  }
-}
-
-// ========================================
-// UPDATE STATS DISPLAY
-// ========================================
-
-function updateStatsDisplay() {
-  const soldEl = document.getElementById("statTotalSold");
-  const custEl = document.getElementById("statCustomers");
-  const totalSold = getTotalSold();
-  if (soldEl) soldEl.textContent = formatNumber(totalSold);
-  if (custEl) custEl.textContent = formatCustomers(totalSatisfiedCustomers);
-}
-
-// ========================================
 // BUILD GAME HEADER (on game pages)
 // ========================================
 
@@ -736,9 +672,6 @@ function handleBuyClick(productName) {
       break;
     }
   }
-
-  totalSatisfiedCustomers++;
-  updateStatsDisplay();
 
   showToast("Redirecting to Discord for: " + productName);
 }
