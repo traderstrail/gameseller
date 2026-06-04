@@ -522,14 +522,11 @@ function formatCustomers(n) {
 }
 
 function buildStats() {
-  const section = document.createElement("section");
-  section.className = "stats-section fade-in";
-
   const totalSold = getTotalSold();
   const customersDisplay = formatCustomers(totalSatisfiedCustomers);
 
-  section.innerHTML = `
-    <div class="stats-container">
+  const statsHTML = `
+    <div class="stats-container fade-in">
       <div class="stat-item">
         <span class="stat-number" id="statTotalSold">${formatNumber(totalSold)}</span>
         <span class="stat-label">Total Sold</span>
@@ -544,7 +541,7 @@ function buildStats() {
 
   const gamesSection = document.querySelector(".games-section");
   if (gamesSection) {
-    gamesSection.insertAdjacentElement("afterend", section);
+    gamesSection.insertAdjacentHTML("beforeend", statsHTML);
   }
 }
 
